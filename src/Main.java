@@ -1,5 +1,13 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.http.HttpRequest;
+import java.net.http.HttpClient;
+
 
  class NetherScanner extends Frame {
 
@@ -26,7 +34,7 @@ import java.awt.event.*;
 
         // App Title branding
         Label brandLabel = new Label("  NETHERSCANNER", Label.LEFT);
-        brandLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
+        brandLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
         brandLabel.setForeground(COLOR_SPOTIFY_GREEN);
         sidebar.add(brandLabel);
 
