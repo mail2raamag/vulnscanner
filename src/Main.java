@@ -10,7 +10,33 @@ import java.net.http.HttpClient;
 
 
  class NetherScanner extends Frame {
+     class Scan {
+         void generate_command(String prompt) {
 
+         }
+
+         void execute(String command) {
+             ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", command);
+
+             try {
+                 Process process = processBuilder.start();
+
+                 BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                 String line;
+
+                 // System.out.println("--- Command Output ---");
+                 while ((line = reader.readLine()) != null) {
+                     System.out.println(line);
+                 }
+
+                 int exitCode = process.waitFor();
+                 System.out.println("\nProcess exited with code: " + exitCode);
+
+             } catch (IOException | InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
     // Define Spotify-inspired Neon Green and Dark Color Palette
     private static final Color COLOR_BG_DARK = new Color(18, 18, 18);
     private static final Color COLOR_SIDEBAR = new Color(0, 0, 0);
